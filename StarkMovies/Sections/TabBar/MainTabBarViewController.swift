@@ -22,6 +22,7 @@ class MainTabBarViewController: UITabBarController {
         search.title = "Search"
         
         tabBar.tintColor = .darkGray
+        tabBar.barTintColor = .white
         
         setViewControllers([home, search], animated: true)
     }
