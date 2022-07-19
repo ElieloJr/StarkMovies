@@ -13,7 +13,7 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     
     private lazy var lightBlueView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 0.39, green: 0.71, blue: 0.99, alpha: 1.00)
+        view.backgroundColor = Colors.lightBlueView
         view.layer.cornerRadius = 30
         view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +22,7 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     
     private lazy var darkBlueView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 0.05, green: 0.45, blue: 0.96, alpha: 1.00)
+        view.backgroundColor = Colors.darkBlueView
         view.layer.cornerRadius = 30
         view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         view.translatesAutoresizingMaskIntoConstraints = false
