@@ -15,7 +15,7 @@ class HomeViewController: StarkViewController {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        layout.itemSize = CGSize(width: (view.frame.width/2.2), height: (view.frame.width/1.6))
+        layout.itemSize = CGSize(width: (view.frame.width/2.2), height: (view.frame.width/1.1))
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
@@ -27,17 +27,22 @@ class HomeViewController: StarkViewController {
                                 withReuseIdentifier: HeaderCollectionReusableView.identifier)
         return collectionView
     }()
+    
+    let viewModel = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         setupConstraints()
-        view.insetsLayoutMarginsFromSafeArea = false
+        viewModel.getPopularMovies()
     }
     
     private func setupView() {
         moviesCollectionView.delegate = self
         moviesCollectionView.dataSource = self
+        
+        viewModel.delegate = self
         view.addSubview(moviesCollectionView)
     }
     
@@ -52,11 +57,16 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return viewModel.movieList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell() }
+        
+        if let movieName = viewModel.movieList[indexPath.row].original_title,
+           let moviePost = viewModel.movieList[indexPath.row].poster_path {
+            cell.configureCell(name: movieName, post: moviePost)
+        }
         return cell
     }
     
@@ -67,10 +77,24 @@ extension HomeViewController: UICollectionViewDataSource {
         }
         return UICollectionReusableView()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+         if (indexPath.row == viewModel.movieList.count - 4 ) {
+             viewModel.getPopularMovies()
+         }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionsView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 280)
+    }
+}
+
+extension HomeViewController: HomeViewDelegate {
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.moviesCollectionView.reloadData()
+        }
     }
 }

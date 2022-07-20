@@ -29,6 +29,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         label.text = "Movie name"
         label.textColor = .black
         label.numberOfLines = 2
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -56,16 +57,17 @@ class MovieCollectionViewCell: UICollectionViewCell {
         postMovieImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         postMovieImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         postMovieImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        postMovieImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40).isActive = true
+        postMovieImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50).isActive = true
         
         movieNameLabel.topAnchor.constraint(equalTo: postMovieImageView.bottomAnchor).isActive = true
-        movieNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6).isActive = true
+        movieNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
         movieNameLabel.widthAnchor.constraint(equalToConstant: frame.width/1.1).isActive = true
     }
     
     func configureCell(name: String, post: String) {
         postMovieImageView.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(post)"),
                                        completed: nil)
+        postMovieImageView.contentMode = .scaleAspectFill
         movieNameLabel.text = name
     }
 }
