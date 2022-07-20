@@ -65,7 +65,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(name: String, post: String) {
-        postMovieImageView.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(post)"),
+        postMovieImageView.sd_setImage(with: URL(string: "\(Api.baseURLImage)\(post)"),
                                        completed: nil)
         postMovieImageView.contentMode = .scaleAspectFill
         movieNameLabel.text = name
