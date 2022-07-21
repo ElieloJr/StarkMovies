@@ -42,6 +42,19 @@ class DetailsViewController: StarkViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    private lazy var postMovieImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.tintColor = Colors.greyIconNotFond
+        imageView.image = UIImage(systemName: "xmark.icloud")
+        imageView.backgroundColor = .lightGray
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 20
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +68,7 @@ class DetailsViewController: StarkViewController {
         
         view.addSubview(lightBlueView)
         view.addSubview(darkBlueView)
+        view.addSubview(postMovieImageView)
     }
     
     private func setupConstraints() {
@@ -67,6 +81,11 @@ class DetailsViewController: StarkViewController {
         darkBlueView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         darkBlueView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         darkBlueView.heightAnchor.constraint(equalToConstant: 330).isActive = true
+        
+        postMovieImageView.topAnchor.constraint(equalTo: darkBlueView.centerYAnchor, constant: -40).isActive = true
+        postMovieImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        postMovieImageView.widthAnchor.constraint(equalToConstant: view.frame.width/1.7).isActive = true
+        postMovieImageView.heightAnchor.constraint(equalToConstant: view.frame.width/1.2).isActive = true
     }
     
     @objc func backButton() {
