@@ -61,7 +61,6 @@ class DetailsViewController: StarkViewController {
         label.text = "Movie Name:"
         label.textColor = .darkGray
         label.numberOfLines = 2
-//        label.font = UIFont(name: "Avenir Heavy", size: 14)
         label.font = UIFont.boldSystemFont(ofSize: 18.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -74,6 +73,27 @@ class DetailsViewController: StarkViewController {
         label.numberOfLines = 2
         label.font = UIFont(name: "Avenir Heavy", size: 22)
         label.font = UIFont.boldSystemFont(ofSize: 22.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var launchInStaticLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Launch in:"
+        label.textColor = .darkGray
+        label.numberOfLines = 2
+        label.font = UIFont.boldSystemFont(ofSize: 18.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "2022-02-02"
+        label.textColor = .black
+        label.numberOfLines = 2
+        label.font = UIFont(name: "Avenir Heavy", size: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -90,9 +110,14 @@ class DetailsViewController: StarkViewController {
         
         view.addSubview(lightBlueView)
         view.addSubview(darkBlueView)
+        
         view.addSubview(postMovieImageView)
+        
         view.addSubview(movieNameStaticLabel)
         view.addSubview(movieNameLabel)
+        
+        view.addSubview(launchInStaticLabel)
+        view.addSubview(dateLabel)
     }
     
     private func setupConstraints() {
@@ -116,6 +141,13 @@ class DetailsViewController: StarkViewController {
         
         movieNameLabel.topAnchor.constraint(equalTo: movieNameStaticLabel.bottomAnchor, constant: 2).isActive = true
         movieNameLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor, constant: 6).isActive = true
+        movieNameLabel.widthAnchor.constraint(equalToConstant: view.frame.width/1.1).isActive = true
+        
+        launchInStaticLabel.topAnchor.constraint(equalTo: movieNameLabel.bottomAnchor, constant: 10).isActive = true
+        launchInStaticLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor).isActive = true
+        
+        dateLabel.topAnchor.constraint(equalTo: launchInStaticLabel.bottomAnchor, constant: 2).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: movieNameLabel.leadingAnchor).isActive = true
     }
     
     @objc func backButton() {
