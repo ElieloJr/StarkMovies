@@ -32,6 +32,7 @@
 		29B4F10B2888B32800D851DF /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F10A2888B32800D851DF /* SearchAPI.swift */; };
 		29B4F10D2888B50200D851DF /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F10C2888B50200D851DF /* SearchResultsViewModel.swift */; };
 		29B4F1102888C89E00D851DF /* MovieNotFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F10F2888C89E00D851DF /* MovieNotFoundTableViewCell.swift */; };
+		29B4F1132888D15700D851DF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F1122888D15700D851DF /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		29B4F10A2888B32800D851DF /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 		29B4F10C2888B50200D851DF /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
 		29B4F10F2888C89E00D851DF /* MovieNotFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNotFoundTableViewCell.swift; sourceTree = "<group>"; };
+		29B4F1122888D15700D851DF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				291974DB2886DF91003DD5C2 /* Home */,
 				291974E02886E006003DD5C2 /* Search */,
 				291974FB2887866F003DD5C2 /* Results */,
+				29B4F1112888D13400D851DF /* Details */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -226,6 +229,14 @@
 			path = "Not Found Cell";
 			sourceTree = "<group>";
 		};
+		29B4F1112888D13400D851DF /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				29B4F1122888D15700D851DF /* DetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,6 +317,7 @@
 				291974DD2886DFB9003DD5C2 /* HomeViewController.swift in Sources */,
 				29B4F1052888AAED00D851DF /* TrendingAPI.swift in Sources */,
 				291974F1288765CF003DD5C2 /* Colors.swift in Sources */,
+				29B4F1132888D15700D851DF /* DetailsViewController.swift in Sources */,
 				291974E52886E139003DD5C2 /* MainTabBarViewController.swift in Sources */,
 				291974E22886E082003DD5C2 /* SearchViewController.swift in Sources */,
 				29B4F10B2888B32800D851DF /* SearchAPI.swift in Sources */,
