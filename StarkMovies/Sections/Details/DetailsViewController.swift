@@ -25,99 +25,25 @@ class DetailsViewController: StarkViewController {
         return leftButton
     }()
     
-    private lazy var lightBlueView: UIView = {
-        let view = UIView()
-        view.backgroundColor = Colors.lightBlueView
-        view.layer.cornerRadius = 30
-        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private lazy var lightBlueView: UIView = StarkKit.defaultColorfulView(color: Colors.lightBlueView)
+    private lazy var darkBlueView: UIView = StarkKit.defaultColorfulView(color: Colors.darkBlueView)
     
-    private lazy var darkBlueView: UIView = {
-        let view = UIView()
-        view.backgroundColor = Colors.darkBlueView
-        view.layer.cornerRadius = 30
-        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private lazy var postMovieImageView: UIImageView = StarkKit.defaultPostImageView()
     
-    private lazy var postMovieImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.tintColor = Colors.greyIconNotFond
-        imageView.image = UIImage(systemName: "xmark.icloud")
-        imageView.backgroundColor = .lightGray
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 20
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    private lazy var movieNameStaticLabel: UILabel = StarkKit.defaultStaticLabel(text: "Movie Name:")
+    private lazy var movieNameLabel: UILabel = StarkKit.defaultInfoLabel(text: "...",
+                                                                         size: 22.0,
+                                                                         lines: 2)
     
-    private lazy var movieNameStaticLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Movie Name:"
-        label.textColor = .darkGray
-        label.numberOfLines = 2
-        label.font = UIFont.boldSystemFont(ofSize: 18.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var launchInStaticLabel: UILabel = StarkKit.defaultStaticLabel(text: "Launch in:")
+    private lazy var dateLabel: UILabel = StarkKit.defaultInfoLabel(text: "0000-00-00",
+                                                                    size: 20.0,
+                                                                    lines: 2)
     
-    private lazy var movieNameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "..."
-        label.textColor = .black
-        label.numberOfLines = 2
-        label.font = UIFont(name: "Avenir Heavy", size: 22)
-        label.font = UIFont.boldSystemFont(ofSize: 22.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var launchInStaticLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Launch in:"
-        label.textColor = .darkGray
-        label.numberOfLines = 2
-        label.font = UIFont.boldSystemFont(ofSize: 18.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.text = "0000-00-00"
-        label.textColor = .black
-        label.numberOfLines = 2
-        label.font = UIFont(name: "Avenir Heavy", size: 20)
-        label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var overviewStaticLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Overview:"
-        label.textColor = .darkGray
-        label.numberOfLines = 2
-        label.font = UIFont.boldSystemFont(ofSize: 18.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var overviewLabel: UILabel = {
-        let label = UILabel()
-        label.text = "..."
-        label.textColor = .black
-        label.numberOfLines = 20
-        label.font = UIFont(name: "Avenir Heavy", size: 18)
-        label.font = UIFont.boldSystemFont(ofSize: 18.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var overviewStaticLabel: UILabel = StarkKit.defaultStaticLabel(text: "Overview:")
+    private lazy var overviewLabel: UILabel = StarkKit.defaultInfoLabel(text: "...",
+                                                                        size: 18.0,
+                                                                        lines: 20)
     
     private lazy var detailsScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -194,10 +120,6 @@ class DetailsViewController: StarkViewController {
     
     private func setupConstraints() {
         detailsScrollView.frame = view.bounds
-//        detailsScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        detailsScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        detailsScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        detailsScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     @objc func backButton() {

@@ -52,13 +52,8 @@ extension SearchResultsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailsController = DetailsViewController()
-        detailsController.navigationItem.title = navigationItem.title
-        detailsController.configureScreen(with: viewModel.movies[indexPath.row])
-        
-        let rootController = UINavigationController(rootViewController: detailsController)
-        rootController.modalPresentationStyle = .fullScreen
-        present(rootController, animated: true)
+        present(StarkKit.callViewController(DetailsViewController(),
+                                            with: viewModel.movies[indexPath.row]), animated: true)
     }
 }
 

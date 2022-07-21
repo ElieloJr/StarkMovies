@@ -11,18 +11,7 @@ import SDWebImage
 class MovieCollectionViewCell: UICollectionViewCell {
     static let identifier = "MovieCollectionViewCell"
     
-    private lazy var postMovieImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.tintColor = Colors.greyIconNotFond
-        imageView.image = UIImage(systemName: "xmark.icloud")
-        imageView.backgroundColor = .lightGray
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 20
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    private lazy var postMovieImageView: UIImageView = StarkKit.defaultPostImageView()
     
     private lazy var movieNameLabel: UILabel = {
         let label = UILabel()
