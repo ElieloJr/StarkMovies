@@ -31,6 +31,7 @@
 		29B4F1092888AC8D00D851DF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F1082888AC8D00D851DF /* SearchViewModel.swift */; };
 		29B4F10B2888B32800D851DF /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F10A2888B32800D851DF /* SearchAPI.swift */; };
 		29B4F10D2888B50200D851DF /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F10C2888B50200D851DF /* SearchResultsViewModel.swift */; };
+		29B4F1102888C89E00D851DF /* MovieNotFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F10F2888C89E00D851DF /* MovieNotFoundTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		29B4F1082888AC8D00D851DF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		29B4F10A2888B32800D851DF /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 		29B4F10C2888B50200D851DF /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
+		29B4F10F2888C89E00D851DF /* MovieNotFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNotFoundTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				291974ED28872594003DD5C2 /* HeaderView */,
 				291974EC28872584003DD5C2 /* Movie Cell */,
 				291974FE288789B4003DD5C2 /* Result Cell */,
+				29B4F10E2888C85F00D851DF /* Not Found Cell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +218,14 @@
 			path = StarkMovies;
 			sourceTree = "<group>";
 		};
+		29B4F10E2888C85F00D851DF /* Not Found Cell */ = {
+			isa = PBXGroup;
+			children = (
+				29B4F10F2888C89E00D851DF /* MovieNotFoundTableViewCell.swift */,
+			);
+			path = "Not Found Cell";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,6 +318,7 @@
 				291974F828876F9F003DD5C2 /* PopularAPI.swift in Sources */,
 				292E1D2228861DC20020EBE3 /* AppDelegate.swift in Sources */,
 				291974FA28877005003DD5C2 /* PopularAPIResponse.swift in Sources */,
+				29B4F1102888C89E00D851DF /* MovieNotFoundTableViewCell.swift in Sources */,
 				291974EF288725BE003DD5C2 /* HeaderCollectionReusableView.swift in Sources */,
 				29197500288789D4003DD5C2 /* ResultTableViewCell.swift in Sources */,
 				29B4F1072888ABA600D851DF /* API.swift in Sources */,

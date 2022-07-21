@@ -19,6 +19,7 @@ class SearchViewController: StarkViewController {
     private var recommendedTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .white
+        tableView.separatorColor = .clear
         tableView.register(ResultTableViewCell.self, forCellReuseIdentifier: ResultTableViewCell.identifier)
         tableView.showsVerticalScrollIndicator = false
         return tableView
@@ -43,8 +44,6 @@ class SearchViewController: StarkViewController {
         navigationItem.searchController = searchController
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         view.addSubview(recommendedTableView)
     }
@@ -77,9 +76,10 @@ extension SearchViewController: UISearchResultsUpdating {
         let searchBar = searchController.searchBar
         
         guard let query = searchBar.text,
-              !query.trimmingCharacters(in: .whitespaces).isEmpty,
-              query.trimmingCharacters(in: .whitespaces).count >= 3,
+                !query.trimmingCharacters(in: .whitespaces).isEmpty,
+                query.trimmingCharacters(in: .whitespaces).count >= 2,
         let resultsController = searchController.searchResultsController as? SearchResultsViewController else { return }
+        self.viewModel.searchMovie(with: query, and: resultsController)
     }
 }
 
