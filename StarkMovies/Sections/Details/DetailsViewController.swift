@@ -119,19 +119,11 @@ class DetailsViewController: StarkViewController {
         return label
     }()
     
-    lazy var viewTeste: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private lazy var detailsScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
         scrollView.showsVerticalScrollIndicator = false
         
-        scrollView.addSubview(viewTeste)
         scrollView.addSubview(lightBlueView)
         scrollView.addSubview(darkBlueView)
 
