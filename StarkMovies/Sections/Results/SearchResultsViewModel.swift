@@ -8,5 +8,7 @@
 import Foundation
 
 class SearchResultsViewModel {
+    
     var movies: [Movie] = []
+    
 }

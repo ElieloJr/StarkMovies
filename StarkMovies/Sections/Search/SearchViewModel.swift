@@ -5,7 +5,7 @@
 //  Created by Usr_Prime on 20/07/22.
 //
 
-import Foundation
+import UIKit
 
 protocol SearchViewDelegate: AnyObject {
     func reloadData()
@@ -27,14 +27,16 @@ class SearchViewModel {
         }
     }
     
-    func searchMovie(with query: String) {
+    func searchMovie(with query: String, and resultsController: SearchResultsViewController) {
         SearchAPI.shared.search(with: query) { result in
-            switch result {
-            case .success(let movies):
-                <#code#>
-            case .failure(let error):
-                print(error)
-                
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let movies):
+                    resultsController.viewModel.movies = movies
+                    resultsController.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
     }
