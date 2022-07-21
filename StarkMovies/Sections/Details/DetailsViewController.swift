@@ -97,6 +97,16 @@ class DetailsViewController: StarkViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private lazy var overviewStaticLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Overview:"
+        label.textColor = .darkGray
+        label.numberOfLines = 2
+        label.font = UIFont.boldSystemFont(ofSize: 18.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,6 +128,8 @@ class DetailsViewController: StarkViewController {
         
         view.addSubview(launchInStaticLabel)
         view.addSubview(dateLabel)
+        
+        view.addSubview(overviewStaticLabel)
     }
     
     private func setupConstraints() {
@@ -148,6 +160,9 @@ class DetailsViewController: StarkViewController {
         
         dateLabel.topAnchor.constraint(equalTo: launchInStaticLabel.bottomAnchor, constant: 2).isActive = true
         dateLabel.leadingAnchor.constraint(equalTo: movieNameLabel.leadingAnchor).isActive = true
+        
+        overviewStaticLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10).isActive = true
+        overviewStaticLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor).isActive = true
     }
     
     @objc func backButton() {
