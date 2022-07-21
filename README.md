@@ -1,4 +1,4 @@
 # StarkMovies
 App para consulta de Filmes
 
-Arquitetura utilizada -> MVVM
+## Arquitetura utilizada -> MVVM
