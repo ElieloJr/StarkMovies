@@ -53,13 +53,8 @@ class HomeViewController: StarkViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailsController = DetailsViewController()
-        detailsController.navigationItem.title = navigationItem.title
-        detailsController.configureScreen(with: viewModel.movieList[indexPath.row])
-        
-        let rootController = UINavigationController(rootViewController: detailsController)
-        rootController.modalPresentationStyle = .fullScreen
-        present(rootController, animated: true)
+        present(StarkKit.callViewController(DetailsViewController(),
+                                            with: viewModel.movieList[indexPath.row]), animated: true)
     }
 }
 

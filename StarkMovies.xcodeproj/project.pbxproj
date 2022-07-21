@@ -26,6 +26,7 @@
 		292E1D2C28861DC20020EBE3 /* StarkMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 292E1D2A28861DC20020EBE3 /* StarkMovies.xcdatamodeld */; };
 		292E1D2E28861DC30020EBE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 292E1D2D28861DC30020EBE3 /* Assets.xcassets */; };
 		292E1D3128861DC30020EBE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 292E1D2F28861DC30020EBE3 /* LaunchScreen.storyboard */; };
+		299E168F2889E1C900632F34 /* StarkKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299E168E2889E1C900632F34 /* StarkKit.swift */; };
 		29B4F1052888AAED00D851DF /* TrendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F1042888AAED00D851DF /* TrendingAPI.swift */; };
 		29B4F1072888ABA600D851DF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F1062888ABA600D851DF /* API.swift */; };
 		29B4F1092888AC8D00D851DF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B4F1082888AC8D00D851DF /* SearchViewModel.swift */; };
@@ -55,6 +56,7 @@
 		292E1D2D28861DC30020EBE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		292E1D3028861DC30020EBE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		292E1D3228861DC30020EBE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		299E168E2889E1C900632F34 /* StarkKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarkKit.swift; sourceTree = "<group>"; };
 		29B4F1042888AAED00D851DF /* TrendingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAPI.swift; sourceTree = "<group>"; };
 		29B4F1062888ABA600D851DF /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		29B4F1082888AC8D00D851DF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				291974E82886E347003DD5C2 /* StarkViewController.swift */,
 				291974F0288765CF003DD5C2 /* Colors.swift */,
 				29B4F1062888ABA600D851DF /* API.swift */,
+				299E168E2889E1C900632F34 /* StarkKit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				29B4F1092888AC8D00D851DF /* SearchViewModel.swift in Sources */,
 				291974FD28878692003DD5C2 /* SearchResultsViewController.swift in Sources */,
 				291974E92886E347003DD5C2 /* StarkViewController.swift in Sources */,
+				299E168F2889E1C900632F34 /* StarkKit.swift in Sources */,
 				292E1D2C28861DC20020EBE3 /* StarkMovies.xcdatamodeld in Sources */,
 				291974EB2886EC37003DD5C2 /* MovieCollectionViewCell.swift in Sources */,
 				291974F828876F9F003DD5C2 /* PopularAPI.swift in Sources */,
