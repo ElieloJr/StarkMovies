@@ -49,7 +49,7 @@ class ResultTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Overview of the movie"
         label.textColor = .darkGray
-        label.numberOfLines = 6
+        label.numberOfLines = 4
         label.font = UIFont.systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

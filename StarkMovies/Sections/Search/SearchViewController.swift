@@ -57,6 +57,16 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.frame.height/3.5
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsController = DetailsViewController()
+        detailsController.navigationItem.title = navigationItem.title
+        detailsController.configureScreen(with: viewModel.movieList[indexPath.row])
+        
+        let rootController = UINavigationController(rootViewController: detailsController)
+        rootController.modalPresentationStyle = .fullScreen
+        present(rootController, animated: true)
+    }
 }
 
 extension SearchViewController: UITableViewDataSource {

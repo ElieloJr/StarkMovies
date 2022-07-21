@@ -112,11 +112,79 @@ class DetailsViewController: StarkViewController {
         let label = UILabel()
         label.text = "..."
         label.textColor = .black
-        label.numberOfLines = 10
+        label.numberOfLines = 20
         label.font = UIFont(name: "Avenir Heavy", size: 18)
         label.font = UIFont.boldSystemFont(ofSize: 18.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    lazy var viewTeste: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var detailsScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .white
+        scrollView.showsVerticalScrollIndicator = false
+        
+        scrollView.addSubview(viewTeste)
+        scrollView.addSubview(lightBlueView)
+        scrollView.addSubview(darkBlueView)
+
+        scrollView.addSubview(postMovieImageView)
+
+        scrollView.addSubview(movieNameStaticLabel)
+        scrollView.addSubview(movieNameLabel)
+
+        scrollView.addSubview(launchInStaticLabel)
+        scrollView.addSubview(dateLabel)
+
+        scrollView.addSubview(overviewStaticLabel)
+        scrollView.addSubview(overviewLabel)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = true
+        
+        lightBlueView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: -100).isActive = true
+        lightBlueView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        lightBlueView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        lightBlueView.heightAnchor.constraint(equalToConstant: 350).isActive = true
+
+        darkBlueView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: -100).isActive = true
+        darkBlueView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        darkBlueView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        darkBlueView.heightAnchor.constraint(equalToConstant: 330).isActive = true
+
+        postMovieImageView.topAnchor.constraint(equalTo: darkBlueView.centerYAnchor, constant: -30).isActive = true
+        postMovieImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        postMovieImageView.widthAnchor.constraint(equalToConstant: view.frame.width/1.7).isActive = true
+        postMovieImageView.heightAnchor.constraint(equalToConstant: view.frame.width/1.2).isActive = true
+
+        movieNameStaticLabel.topAnchor.constraint(equalTo: postMovieImageView.bottomAnchor, constant: 14).isActive = true
+        movieNameStaticLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10).isActive = true
+
+        movieNameLabel.topAnchor.constraint(equalTo: movieNameStaticLabel.bottomAnchor, constant: 2).isActive = true
+        movieNameLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor, constant: 6).isActive = true
+        movieNameLabel.widthAnchor.constraint(equalToConstant: view.frame.width/1.1).isActive = true
+
+        launchInStaticLabel.topAnchor.constraint(equalTo: movieNameLabel.bottomAnchor, constant: 10).isActive = true
+        launchInStaticLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor).isActive = true
+
+        dateLabel.topAnchor.constraint(equalTo: launchInStaticLabel.bottomAnchor, constant: 2).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: movieNameLabel.leadingAnchor).isActive = true
+
+        overviewStaticLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10).isActive = true
+        overviewStaticLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor).isActive = true
+
+        overviewLabel.topAnchor.constraint(equalTo: overviewStaticLabel.bottomAnchor, constant: 2).isActive = true
+        overviewLabel.leadingAnchor.constraint(equalTo: movieNameLabel.leadingAnchor).isActive = true
+        overviewLabel.widthAnchor.constraint(equalToConstant: view.frame.width/1.1).isActive = true
+        overviewLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20).isActive = true
+        
+        return scrollView
     }()
 
     override func viewDidLoad() {
@@ -129,59 +197,29 @@ class DetailsViewController: StarkViewController {
     private func setupView() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         
-        view.addSubview(lightBlueView)
-        view.addSubview(darkBlueView)
-        
-        view.addSubview(postMovieImageView)
-        
-        view.addSubview(movieNameStaticLabel)
-        view.addSubview(movieNameLabel)
-        
-        view.addSubview(launchInStaticLabel)
-        view.addSubview(dateLabel)
-        
-        view.addSubview(overviewStaticLabel)
-        view.addSubview(overviewLabel)
+        view.addSubview(detailsScrollView)
     }
     
     private func setupConstraints() {
-        lightBlueView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        lightBlueView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        lightBlueView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        lightBlueView.heightAnchor.constraint(equalToConstant: 350).isActive = true
-        
-        darkBlueView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        darkBlueView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        darkBlueView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        darkBlueView.heightAnchor.constraint(equalToConstant: 330).isActive = true
-        
-        postMovieImageView.topAnchor.constraint(equalTo: darkBlueView.centerYAnchor, constant: -40).isActive = true
-        postMovieImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        postMovieImageView.widthAnchor.constraint(equalToConstant: view.frame.width/1.7).isActive = true
-        postMovieImageView.heightAnchor.constraint(equalToConstant: view.frame.width/1.2).isActive = true
-        
-        movieNameStaticLabel.topAnchor.constraint(equalTo: postMovieImageView.bottomAnchor, constant: 14).isActive = true
-        movieNameStaticLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        
-        movieNameLabel.topAnchor.constraint(equalTo: movieNameStaticLabel.bottomAnchor, constant: 2).isActive = true
-        movieNameLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor, constant: 6).isActive = true
-        movieNameLabel.widthAnchor.constraint(equalToConstant: view.frame.width/1.1).isActive = true
-        
-        launchInStaticLabel.topAnchor.constraint(equalTo: movieNameLabel.bottomAnchor, constant: 10).isActive = true
-        launchInStaticLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor).isActive = true
-        
-        dateLabel.topAnchor.constraint(equalTo: launchInStaticLabel.bottomAnchor, constant: 2).isActive = true
-        dateLabel.leadingAnchor.constraint(equalTo: movieNameLabel.leadingAnchor).isActive = true
-        
-        overviewStaticLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10).isActive = true
-        overviewStaticLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor).isActive = true
-        
-        overviewLabel.topAnchor.constraint(equalTo: overviewStaticLabel.bottomAnchor, constant: 2).isActive = true
-        overviewLabel.leadingAnchor.constraint(equalTo: movieNameLabel.leadingAnchor).isActive = true
-        overviewLabel.widthAnchor.constraint(equalToConstant: view.frame.width/1.1).isActive = true
+        detailsScrollView.frame = view.bounds
+//        detailsScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        detailsScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        detailsScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        detailsScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     @objc func backButton() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func configureScreen(with movie: Movie) {
+        if let post = movie.poster_path, let name = movie.original_title,
+           let date = movie.release_date, let overview = movie.overview {
+            postMovieImageView.sd_setImage(with: URL(string: "\(Api.baseURLImage)\(post)"), completed: nil)
+            postMovieImageView.contentMode = .scaleAspectFill
+            movieNameLabel.text = name
+            dateLabel.text = date
+            overviewLabel.text = overview
+        }
     }
 }

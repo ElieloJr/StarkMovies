@@ -55,7 +55,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailsController = DetailsViewController()
         detailsController.navigationItem.title = navigationItem.title
-//        postController.setupScreen(with: viewModel.posts[indexPath.row])
+        detailsController.configureScreen(with: viewModel.movieList[indexPath.row])
         
         let rootController = UINavigationController(rootViewController: detailsController)
         rootController.modalPresentationStyle = .fullScreen
