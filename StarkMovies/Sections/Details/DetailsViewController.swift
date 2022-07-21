@@ -55,6 +55,28 @@ class DetailsViewController: StarkViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    private lazy var movieNameStaticLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Movie Name:"
+        label.textColor = .darkGray
+        label.numberOfLines = 2
+//        label.font = UIFont(name: "Avenir Heavy", size: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 18.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var movieNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "La Cuca Ratcha"
+        label.textColor = .black
+        label.numberOfLines = 2
+        label.font = UIFont(name: "Avenir Heavy", size: 22)
+        label.font = UIFont.boldSystemFont(ofSize: 22.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +91,8 @@ class DetailsViewController: StarkViewController {
         view.addSubview(lightBlueView)
         view.addSubview(darkBlueView)
         view.addSubview(postMovieImageView)
+        view.addSubview(movieNameStaticLabel)
+        view.addSubview(movieNameLabel)
     }
     
     private func setupConstraints() {
@@ -86,6 +110,12 @@ class DetailsViewController: StarkViewController {
         postMovieImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         postMovieImageView.widthAnchor.constraint(equalToConstant: view.frame.width/1.7).isActive = true
         postMovieImageView.heightAnchor.constraint(equalToConstant: view.frame.width/1.2).isActive = true
+        
+        movieNameStaticLabel.topAnchor.constraint(equalTo: postMovieImageView.bottomAnchor, constant: 14).isActive = true
+        movieNameStaticLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        
+        movieNameLabel.topAnchor.constraint(equalTo: movieNameStaticLabel.bottomAnchor, constant: 2).isActive = true
+        movieNameLabel.leadingAnchor.constraint(equalTo: movieNameStaticLabel.leadingAnchor, constant: 6).isActive = true
     }
     
     @objc func backButton() {
